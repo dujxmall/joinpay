@@ -23,7 +23,11 @@ class OrderQuery extends JoinPayRequest
     public function __construct($data=[])
     {
         parent::__construct($data);
-        $this->params['p1_MerchantNo'] = JoinPayClient::getInstance()->merchant_no;
+        $this->params['p0_Version']         = '1.0';
+        $this->params['p1_MerchantNo']      = JoinPayClient::getInstance()->merchant_no;
+        $this->params['q7_AppId']      = JoinPayClient::getInstance()->app_id;
+        $this->params['p4_Cur']             = 1;
+        $this->params['qa_TradeMerchantNo'] = JoinPayClient::getInstance()->app_trade_merchantNo;
     }
 
     /**
