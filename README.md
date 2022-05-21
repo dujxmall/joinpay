@@ -14,7 +14,7 @@
 ### 安装
 
 ```
-composer require lineryz/joinpay
+composer require jxmall/joinpay
 ```
 
 ### 用法
