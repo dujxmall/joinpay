@@ -2,11 +2,13 @@
 
 return [
     // 商户ID
-    'app_id'            => '',
+    'app_id' => '',
     // 商户加密密钥
-    'app_secret'        => '',
+    'app_secret' => '',
     // 商户私钥
-    'private_key'       => '',
+    'private_key' => '',
     // 报备商户号
-    'trade_merchantNo'  => '',
+    'trade_merchantNo' => '',
+    //商户编号
+    'merchant_no' => ''
 ];
