@@ -36,7 +36,8 @@ class JoinPayClient implements JoinPayFactoryInterface
         'unipay' => 'UniPay',
         'orderquery' => 'OrderQuery',
         'refund' => 'Refund',
-        'refundquery' => 'RefundQuery'
+        'refundquery' => 'RefundQuery',
+        'singlepay' => 'SinglePay'
     ];
 
     private function __construct(array $config = [])
@@ -160,15 +161,25 @@ class JoinPayClient implements JoinPayFactoryInterface
         $client = new \GuzzleHttp\Client();
         switch ($method) {
             case 'POST':
-                $respone = $isJsonRequest ? $client->post($uri, ['headers' => [
-                    'Content-type' => "application/json;charset='utf-8'",
-                    'Accept' => 'application/json'
-                ], 'form_params' => $params]) : $client->post($uri, ['form_params' => $params]);
+                $respone = $isJsonRequest ? $client->post($uri,
+                    [
+                        'headers' => [
+                            'Content-type' => "application/json;charset='utf-8'",
+                            'Accept' => 'application/json'
+                        ],
+                        'body' => json_encode($params)
+                    ]) : $client->post($uri,
+                    [
+                        'headers' => [
+                            'Content-type' => "application/x-www-form-urlencoded",
+                            'Accept' => 'application/json'
+                        ],
+                        'form_params' => $params
+                    ]);
                 break;
             default:
                 $respone = $client->get($uri, ['query' => $params]);
         }
-
         try {
             $respone = $respone->getBody();
             $jsonReq = json_decode($respone, true);

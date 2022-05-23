@@ -73,7 +73,7 @@ abstract class JoinPayRequest
      * @param false $is_form_request 是否表单提交跳转
      * @return mixed|string
      */
-    public function send($isJsonRequest=false,$is_form_request=false){
-        return JoinPayClient::getInstance()->setSignType($this->signType)->setSignField($this->signFiled)->send($this->uri,$this->params,$this->method,$isJsonRequest,$is_form_request);
+    public function send($isJsonRequest=false,$is_form_request=false,$method="GET"){
+        return JoinPayClient::getInstance()->setSignType($this->signType)->setSignField($this->signFiled)->send($this->uri,$this->params,$method,$isJsonRequest,$is_form_request);
     }
 }
