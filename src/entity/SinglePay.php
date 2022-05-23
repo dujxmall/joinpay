@@ -28,6 +28,35 @@ class SinglePay extends JoinPayRequest
     function __construct($data = [])
     {
         parent::__construct($data);
+        $this->params = [
+            "userNo" => $config['merchant_no'],
+            "productCode" => "BANK_PAY_ORDINARY_ORDER",
+            "requestTime" => "",
+            "merchantOrderNo" => "",
+            "receiverAccountNoEnc" => "",
+            "receiverNameEnc" => "",
+            "receiverAccountType" => "201",
+            "receiverBankChannelNo" => "",
+            "paidAmount" => "",
+            "currency" => "201",
+            "isChecked" => "202",
+            "paidDesc" => "",
+            "paidUse" => "201",
+            "callbackUrl" => ""
+        ];
+    }
+
+
+    /**
+     * Created by PhpStorm.
+     * User：ganxi
+     * Date：2022/5/23
+     * Time：13:39
+     * Note：设置方法供外部调用
+     */
+    public function set($key, $value)
+    {
+        $this->params[$key] = $value;
     }
 
     /**
@@ -40,6 +69,7 @@ class SinglePay extends JoinPayRequest
         $this->params['userNo'] = $val;
         return $this;
     }
+
 
     /**
      * Created by PhpStorm.
@@ -220,6 +250,7 @@ class SinglePay extends JoinPayRequest
         $this->params['firstProductCode'] = $val;
         return $this;
     }
+
     /**
      * Created by PhpStorm.
      * User：ganxi
@@ -233,6 +264,7 @@ class SinglePay extends JoinPayRequest
         $this->params['isChecked'] = $val;
         return $this;
     }
+
     /**
      * Created by PhpStorm.
      * User：ganxi

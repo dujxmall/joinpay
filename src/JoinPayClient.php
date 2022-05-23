@@ -28,6 +28,8 @@ class JoinPayClient implements JoinPayFactoryInterface
     // The array of created "entity".
     protected $requests = [];
 
+    public $is_sort = true;
+
     /**
      * 默认封装提供的接口封装
      * @var string[]
@@ -119,7 +121,9 @@ class JoinPayClient implements JoinPayFactoryInterface
      */
     function buildSign($params, $signType = 'MD5')
     {
-        ksort($params, 2);
+        if ($this->is_sort) {
+            ksort($params, 2);
+        }
         if (strtoupper($signType) == 'MD5') {
             return md5(implode("", $params) . $this->app_secret);
         } else {
