@@ -4,7 +4,7 @@
 
 ### 声明
 
-这个是个人集成的汇聚支付PHP dome请注意：
+这个是个人集成的汇聚支付PHP demo请注意：
 
 - 1.非官方提供，非官方提供，非官方提供
 - 2.如有不可请参照汇聚支付官网dome进行修改
@@ -103,4 +103,4 @@ $joinPayClient = $joinPayClient->driver('RefundQuery');// 使用驱动方式重�
 
 ### 特别鸣谢
 
-排名不分先后，感谢这些插件的开发者： @jackven <jackven@qq.com>    @yijin <uyijin@gmail.com>** 等，如有遗漏请联系我！
+排名不分先后，感谢这些插件的开发者：@lineryz<lineryz@126.com>  @jackven <jackven@qq.com>    @yijin <uyijin@gmail.com>** 等，如有遗漏请联系我！
