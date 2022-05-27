@@ -26,7 +26,7 @@ class Refund extends JoinPayRequest
         parent::__construct($data);
 
         $this->params['q1_version']         = '1.0';
-        $this->params['p1_MerchantNo']      = JoinPayClient::getInstance()->app_id;
+        $this->params['p1_MerchantNo']      = JoinPayClient::getInstance()->merchant_no;
     }
 
     /**
